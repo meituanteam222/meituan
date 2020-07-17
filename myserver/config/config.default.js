@@ -39,7 +39,7 @@ host:"localhost",
  port:"3306",
 user:"root",
 password:"123",
-database:"myshop"
+database:"mei_tuan"
 }
   }
 
@@ -51,9 +51,22 @@ config.multipart = {
 
 // 跨域的配置
     config.cors = {
-          origin: '*',
-          allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+          origin: 'http://192.168.3.224:8080',
+          allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+		credentials:true
       };
+
+  //session 配置
+  config.session = {
+    key: 'EGG_SESS',  //这个key就是返回给前端的key
+    maxAge: 24 * 3600 * 1000, //有效期 1 天
+    httpOnly: true, //不允许js访问
+    encrypt: true, //加密
+  };
+
+
+
+
 
   return {
     ...config,
