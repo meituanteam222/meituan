@@ -26,7 +26,7 @@
 		
 		<!-- 项目组件 -->
 		<div class="goodsoutter">
-			<div class="goodsbox" v-for="(el,index) in huiarr" :key="index">
+			<div class="goodsbox" v-for="(el,index) in goodsarr" :key="index">
 				<a class="mygoods">{{el.title}}</a>
 			</div>
 		</div>
@@ -44,7 +44,8 @@
 			return {
 				arr:[],
 				keyword: '',
-				goodsarr: [],
+				// goodsarr: [],
+				// huiarr:[]
 			
 			};
 		},
@@ -53,6 +54,9 @@
 		computed:{
 			huiarr:function(){
 				return this.$store.state.huiarr
+			},
+			goodsarr:function(){
+				return this.$store.state.goodsarr
 			},
 			num:function(){
 				return this.$store.state.huiarr.length
@@ -63,10 +67,9 @@
 					var url = `http://127.0.0.1:7001/search1?keyword=${this.keyword}`
 					this.$axios.get(url).then((res) => {
 						// console.log(res.data)
-						this.$store.commit("changehuiarr",res.data) 
-						
+						this.$store.commit("changehuiarr",res.data.huiarr)
+						 this.$store.commit("changegoodsarr",res.data.goodsarr)
 					})
-				
 			}
 		}
 	}

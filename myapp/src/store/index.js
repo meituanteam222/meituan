@@ -5,14 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		huiarr: []
+		huiarr: [],
+		goodsarr:[]
 	},
 	getters: {
-		gethuiarr: state => state.huiarr
+		gethuiarr: state => state.huiarr,
+		getgoodsarr: state => state.goodsarr
 	},
 	mutations: {
 		changehuiarr(state, val) {
 			state.huiarr = val;
+			// console.log(arguments)
+		},
+		changegoodsarr(state, val) {
+			state.goodsarr = val;
 			// console.log(arguments)
 		}
 	},

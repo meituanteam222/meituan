@@ -29,7 +29,7 @@ module.exports = app => {
   
   
     // 搜索详情页
-    router.get('/search', controller.search.search);
+    // router.get('/search', controller.search.search);
     // 付款详情getmoneydetail
     router.get('/getmoneydetail', controller.setOrder.getmoneydetail);
     // 支付

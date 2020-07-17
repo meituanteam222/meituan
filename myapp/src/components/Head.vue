@@ -96,7 +96,8 @@
 						if(this.$route.path!="/search"){
 							this.$router.push({path:'/search'})
 						}
-						this.$store.commit("changehuiarr",res.data) 
+						this.$store.commit("changehuiarr",res.data.huiarr) 
+						this.$store.commit("changegoodsarr",res.data.goodsarr)
 					})
 				
 			},

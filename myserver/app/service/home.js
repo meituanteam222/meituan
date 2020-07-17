@@ -2,9 +2,12 @@ const Service = require('egg').Service;
 class RootService extends Service {
   async search(keyword) {
  
-    var sql=`select * from   goods where title like '%${keyword}%' `
-    var data = await this.app.mysql.query(sql);
-    return data;
+    var sql1=`select * from  goods where title like '%${keyword}%' `
+    var sql2=`select * from  hui where title like '%${keyword}%' `
+    var data1 = await this.app.mysql.query(sql1);
+	var data2 = await this.app.mysql.query(sql2);
+	
+    return {goodsarr:data1,huiarr:data2};
   }
   async allgoods(uid) {
           var data = await this.app.mysql.query(`select * from goods   where gid >=4  order by gid desc`);
